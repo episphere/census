@@ -7,7 +7,7 @@ census.get=async(q='/data/')=>{ // default returns catalog, could also be, for e
     if(!q.match(/\?/g)){
         url=`https://us-central1-nih-nci-dceg-episphere-dev.cloudfunctions.net/episphere_census?${encodeURIComponent(q)}?date=${Date()}`
     }
-    console.log(`calling ${url}`)
+    //console.log(`calling ${url}`)
     let res = await (await fetch(url)).text()
     //debugger
     try {
