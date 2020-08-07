@@ -18,10 +18,10 @@
 </pre>
 <h3>Examples:</h3>
 <pre>
-census.get() // default index
+await census.get() // default index
 </pre>
 <pre>
-census.get('/data/2018/acs/acs1/subject?get=NAME,group(S0101)&for=us:1')
+await census.get('/data/2018/acs/acs1/subject?get=NAME,group(S0101)&for=us:1')
 </pre>
 
 </body>
@@ -30,5 +30,5 @@ census.get('/data/2018/acs/acs1/subject?get=NAME,group(S0101)&for=us:1')
 let pre1 = document.getElementById('code1')
 pre1.innerText=decodeURIComponent('%3Cscript%20src%3D%22https%3A%2F%2Fepisphere.github.io%2Fcensus%2Fcensus.js%22%3E%3C%2Fscript%3E')
 let pre2 = document.getElementById('code2')
-pre2.innerText=decodeURIComponent('require(%22https%3A%2F%2Fepisphere.github.io%2Fcensus%2Fcensu.js%22')
+pre2.innerText=decodeURIComponent('require(%22https%3A%2F%2Fepisphere.github.io%2Fcensus%2Fcensu.js%22)')
 </script>
