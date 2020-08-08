@@ -10,7 +10,7 @@ const server = http.createServer((req0, res0) => {
   res0.statusCode = 200;
   let msg='hello world at '+ Date()
   if(req0.headers.origin){
-      if((req0.headers.origin=='https://episphere.github.io')|(req0.headers.origin=='http://localhost:8000')){
+      if((req0.headers.origin=='https://episphere.github.io')|(req0.headers.origin=='http://localhost:8000')|(req0.headers.origin=='https://episphere.static.observableusercontent.com')){
         let url=`https://api.census.gov${decodeURIComponent(req0.url.slice(2))}&key=${process.env.censuskey}`
         https.get(url, res => {
           res.setEncoding("utf8");
@@ -19,12 +19,9 @@ const server = http.createServer((req0, res0) => {
             body += data;
           });
           res.on("end", () => {
-            //body = JSON.parse(body);
-            //console.log(body);
             res0.end(body);
           });
         });
-          //msg=req.headers.origin
       }else{
         res0.end('restricted to episphere, not '+req0.headers.origin);
       }
