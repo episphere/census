@@ -15,10 +15,10 @@ h2 {
 }
 
 h3 {
-    color:#3F51B5
+    color:#5e0096;
 }
 h4 {
-    color:#009688;
+    color:#00968a;
     font-size:large;
 }
 code {
@@ -33,7 +33,8 @@ a:hover {
 
 .code {
     color:maroon;
-    font-weight:bolder;
+    font-size:large;
+    font-family:monospace;
     vertical-align:top
 }
 .label {
