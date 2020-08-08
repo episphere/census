@@ -8,7 +8,7 @@
 <body>
 <h1>Census <sup style="font-size:medium;color:green"><a href="https://dceg.cancer.gov/" target="_blank" style="color:green">DCEG</a></sup><br><span style="font-size:small;color:blue">[<a href="https://github.com/episphere/census" target="_blank">code</a>] [<a href="https://github.com/episphere/census/issues" target="_blank">issues</a>] [<a href="#" target="_blank" style="font-size:small;">notebook (soon ...)</a>] [<a href="https://gitter.im/episphere/DeathTracker" target="_blank">gitter</a>]</span></h1>
 <hr>
-<p>Programatic operation of <a href="https://www.census.gov/data/developers/guidance/api-user-guide.html" target="_blank">Census APIs</a> authenticated from episphere domains.<p>
+<p>Programatic operation of <a href="https://www.census.gov/data/developers/guidance/api-user-guide.html" target="_blank">Census APIs</a> authenticated from episphere domains. Results are rendered in JSON-LD with typing mapped to <a href="https://www.data.gov" target="_blank">data.gov</a>'s data catalog <a href="https://resources.data.gov/resources/dcat-us/" target="_blank">dcat</a> schema.<p>
 <h2>Load library</h2>
 <h3> Script tag</h3>
 <pre id="code1">
@@ -30,5 +30,5 @@ await census.get('/data/2018/acs/acs1/subject?get=NAME,group(S0101)&for=us:1')
 let pre1 = document.getElementById('code1')
 pre1.innerText=decodeURIComponent('%3Cscript%20src%3D%22https%3A%2F%2Fepisphere.github.io%2Fcensus%2Fcensus.js%22%3E%3C%2Fscript%3E')
 let pre2 = document.getElementById('code2')
-pre2.innerText=decodeURIComponent('require(%22https%3A%2F%2Fepisphere.github.io%2Fcensus%2Fcensu.js%22)')
+pre2.innerText=decodeURIComponent('require(%22https%3A%2F%2Fepisphere.github.io%2Fcensus%2Fcensus.js%22)')
 </script>
