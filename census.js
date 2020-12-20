@@ -27,6 +27,10 @@ census.get=async(q='/data/',apiURL='https://us-central1-nih-nci-dceg-episphere-d
     return res
 }
 
+census.ACS5vars=async(yr=2019)=>{
+    return (await fetch(`https://api.census.gov/data/${yr}/acs/acs5/variables.json`)).json()
+}
+
 census.help=function(){
     window.open('https://observablehq.com/@episphere/census')
 }
