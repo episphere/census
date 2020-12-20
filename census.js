@@ -3,6 +3,9 @@ console.log('census.js loaded')
 census={}
 
 census.get=async(q='/data/',apiURL='https://us-central1-nih-nci-dceg-episphere-dev.cloudfunctions.net/episphere_census')=>{ // default returns catalog, could also be, for example census.get('/data/2018/acs/acs1/subject?get=NAME,group(S0101)&for=us:1')
+    if(census.key){
+        apiURL='https://api.census.gov'
+    }
     let url=`${apiURL}?${encodeURIComponent(q)}`
     if(!q.match(/\?/g)){
         url=`${apiURL}?${encodeURIComponent(q)}?date=${Date()}`
@@ -13,9 +16,9 @@ census.get=async(q='/data/',apiURL='https://us-central1-nih-nci-dceg-episphere-d
     try {
         res=JSON.parse(res)
     }
-catch(err) {
-    console.log(res)
-    }
+    catch(err) {
+        console.log(err,res)
+        }
     return res
 }
 
