@@ -6,6 +6,9 @@ census.get=async(q='/data/',apiURL='https://us-central1-nih-nci-dceg-episphere-d
     let url=''
     if(census.key){
         url=`https://api.census.gov${q}?key=${census.key}`
+        if(!q.match(/\?/g)){
+            url=`https://api.census.gov${q}&key=${census.key}`
+        }
     }else{
         url=`${apiURL}?${encodeURIComponent(q)}`
         if(!q.match(/\?/g)){
