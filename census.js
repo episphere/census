@@ -27,13 +27,22 @@ census.get=async(q='/data/',apiURL='https://us-central1-nih-nci-dceg-episphere-d
     return res
 }
 
-census.ACS5vars=async(yr=2019)=>{
-    return (await fetch(`https://api.census.gov/data/${yr}/acs/acs5/variables.json`)).json()
+census.ACS5vars=async(yr=2019,q)=>{ // ACS5 variables
+    return await (await fetch(`https://api.census.gov/data/${yr}/acs/acs5/variables.json`)).json()
 }
 
-census.help=function(){
+census.ACS5geo=async(yr=2019)=>{ // ACS5 geography
+    return (await fetch(`https://api.census.gov/data/${yr}/acs/acs5/geography.json`)).json()
+}
+
+census.ACS5groups=async(yr=2019)=>{ // ACS5 groups
+    return (await fetch(`https://api.census.gov/data/${yr}/acs/acs5/groups.json`)).json()
+}
+
+census.help=function(){ // observable notebook
     window.open('https://observablehq.com/@episphere/census')
 }
+
 
 // example
 // census.get('/data/2018/acs/acs1/subject?get=NAME,group(S0101)&for=us:1')
