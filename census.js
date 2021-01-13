@@ -28,7 +28,26 @@ census.get=async(q='/data/',apiURL='https://us-central1-nih-nci-dceg-episphere-d
 }
 
 census.ACS5vars=async(yr=2019,q)=>{ // ACS5 variables
-    return await (await fetch(`https://api.census.gov/data/${yr}/acs/acs5/variables.json`)).json()
+    let vv
+    if(typeof(yr)=='object'){ // first input can be year or variable object
+        vv=Object.assign({},yr) // to cut connection to vv returned
+    }else{
+        vv = await (await fetch(`https://api.census.gov/data/${yr}/acs/acs5/variables.json`)).json()
+    }
+    //let vv = await (await fetch(`https://api.census.gov/data/${yr}/acs/acs5/variables.json`)).json()
+    //let vv = await census.getJSON(`https://api.census.gov/data/${yr}/acs/acs5/variables.json`)
+    if(q){
+        let v0 = {}
+        Object.keys(vv.variables).forEach(v=>{
+            let vi = vv.variables[v]
+            if(`${vi.label} ${vi.concept}`.match(q)){
+                //Object.assign(v0,vv.variables[v])
+                v0[v]=vi
+            }
+        })
+        vv.variables=v0
+    }
+    return vv
 }
 
 census.ACS5geo=async(yr=2019)=>{ // ACS5 geography
